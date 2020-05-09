@@ -1,0 +1,67 @@
+﻿@model WebApplication1.Models.Animal
+
+@{
+    ViewData["Title"] = "Edit Page";
+}
+
+<div class="text-center">
+    <form class="form-group" asp-controller="Admin" asp-action="EditAnimal" method="post">
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Name">Animal Name: </label>
+            <div>
+                <input class="form-control" asp-for="Name" value="@Model.Name" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Age">Animal Age: </label>
+            <div>
+                <input class="form-control" asp-for="Age" value="@Model.Age" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="ImgUrl">Picture Name: </label>
+            <div>
+                <input type="file" class="form-control-file" asp-for="ImgUrl" value="C://te">
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="Description">Description: </label>
+            <div>
+                <textarea class="form-control" rows="8" asp-for="Description" value="@Model.Description"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" asp-for="CategoryId">Categoty: </label>
+            <div>
+                <select class="form-control form-control-lg" asp-for="CategoryId" id="CategoryId">
+                    @if (Model.CategoryId == 1)
+                    {
+                        <option value="1" selected="selected">Mamal</option>
+                        <option value="2">Reptile</option>
+                        <option value="3">Aquatic</option>
+                    }
+                    else if (Model.CategoryId == 2)
+                    {
+                        <option value="1">Mamal</option>
+                        <option value="2" selected="selected">Reptile</option>
+                        <option value="3">Aquatic</option>
+                    }
+                    else
+                    {
+                        <option value="1">Mamal</option>
+                        <option value="2">Reptile</option>
+                        <option value="3" selected="selected">Aquatic</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <button class="btn btn-outline-secondary">Save</button>
+
+    </form>
+</div>

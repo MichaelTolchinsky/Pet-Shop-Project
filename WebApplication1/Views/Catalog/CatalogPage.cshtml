@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebApplication1.Models.Animal>
+
+@{
+    ViewData["Title"] = "Catalog Page";
+}
+
+<div class="text-center">
+    <center>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select a category
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" asp-controller="Catalog" asp-action="CatalogPage" asp-route-id="1">Mamal</a>
+                <a class="dropdown-item" asp-controller="Catalog" asp-action="CatalogPage" asp-route-id="2">Reptile</a>
+                <a class="dropdown-item" asp-controller="Catalog" asp-action="CatalogPage" asp-route-id="3">Aquatic</a>
+            </div>
+        </div>
+        <br />
+        <table>
+            <tr>
+                <th>Portrait</th>
+                <th>Name</th>
+                <th>find out more and comment</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img width="200" height="200" src=@item.ImgUrl /></td>
+                    <td>@item.Name</td>
+                    <td>
+                        <a class="btn btn-outline-secondary" role="button" asp-controller="Catalog" asp-action="DetailPage" asp-route-id="@item.AnimalId">Detail</a>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </center>
+
+
+</div>
+

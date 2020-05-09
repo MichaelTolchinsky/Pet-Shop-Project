@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebApplication1.Models.Animal>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <center>
+        <h6 class="h6">The two most highly rated pets today are</h6>
+        <table>
+            <tr>
+                <th>Portrait</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Number of comments</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img width="200" height="200" src=@item.ImgUrl /></td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Comments.Count</td>
+                </tr>
+            }
+        </table>
+    </center>
+    
+    
+</div>

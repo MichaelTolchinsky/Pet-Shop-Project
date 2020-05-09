@@ -1,0 +1,45 @@
+﻿@model WebApplication1.Models.DetailViewModel
+@{
+    ViewData["Title"] = "Detail Page";
+}
+
+<div class="text-center">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>@Model.Animal.Name</th>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <th>@Model.Animal.Age</th>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <th>@Model.Animal.Description</th>
+        </tr>
+        <tr>
+            <th>Category Name</th>
+            <th>@Model.AnimalCategory</th>
+        </tr>
+    </table>
+    <br />
+
+    <form method="post">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-secondary" type="submit">Submit</button>
+            </div>
+            <input name="Animal" type="hidden"  value="@Model.Animal.AnimalId" />
+            <input name="CommentMessage" type="text" class="form-control" placeholder="Add you comments here and press submit" aria-label="" aria-describedby="basic-addon1">
+        </div>
+    </form>
+    
+
+    <ul class="list-group  float-left">
+        @foreach (var item in Model.AnimalComments)
+        {
+            <li class="list-group-item">@item.CommentMessage</li>
+        }
+    </ul>
+
+</div>
