@@ -37,8 +37,8 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult EditAnimal(int id,Animal animal)
         {
-            repository.UpdateAnimal(id,animal);
-            return RedirectToAction("AdminPage");
+                repository.UpdateAnimal(id,animal);
+                return RedirectToAction("AdminPage");
         }
 
         [HttpGet]
@@ -50,8 +50,16 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult AddAnimal(Animal animal)
         {
-            repository.InsertAnimal(animal);
-            return RedirectToAction("AdminPage");
+            if (ModelState.IsValid)
+            { 
+                repository.InsertAnimal(animal);
+                return RedirectToAction("AdminPage");
+            }
+            else
+            {
+                return View("AddAnimal");
+            }
+            
         }
     }
 }

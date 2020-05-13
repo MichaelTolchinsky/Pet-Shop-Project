@@ -6,11 +6,12 @@
 
 <div class="text-center">
     <form class="form-group" asp-controller="Admin" asp-action="AddAnimal" method="post">
-
+   
         <div class="form-group row">
             <label class="col-sm-2 col-form-label" asp-for="Name">Animal Name: </label>
             <div>
-                <input class="form-control" asp-for="Name" />
+                    <input class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name"></span>
             </div>
         </div>
 
@@ -18,6 +19,7 @@
             <label class="col-sm-2 col-form-label" asp-for="Age">Animal Age: </label>
             <div>
                 <input class="form-control" asp-for="Age" />
+                <span asp-validation-for="Age"></span>
             </div>
         </div>
 
@@ -25,6 +27,7 @@
             <label class="col-sm-2 col-form-label" asp-for="ImgUrl">Picture Name: </label>
             <div>
                 <input type="file" class="form-control-file" asp-for="ImgUrl">
+                <span asp-validation-for="ImgUrl"></span>
             </div>
 
         </div>
@@ -34,6 +37,7 @@
             <label class="col-sm-2 col-form-label" asp-for="Description">Description: </label>
             <div>
                 <textarea class="form-control" rows="8" asp-for="Description"></textarea>
+                <span asp-validation-for="Description"></span>
             </div>
         </div>
 
