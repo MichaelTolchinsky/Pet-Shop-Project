@@ -30,15 +30,23 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult EditAnimal(int id)
         {
-            var currentAnimal = repository.GetAnimals().First(an=> an.AnimalId == id);
+            var currentAnimal = repository.GetAnimals().First(an => an.AnimalId == id);
             return View(currentAnimal);
         }
 
         [HttpPost]
-        public IActionResult EditAnimal(int id,Animal animal)
+        public IActionResult EditAnimal(int id, Animal animal)
         {
-                repository.UpdateAnimal(id,animal);
+            if (ModelState.IsValid)
+            {
+                repository.UpdateAnimal(id, animal);
                 return RedirectToAction("AdminPage");
+            }
+            else
+            {
+                return EditAnimal(id);
+            }
+
         }
 
         [HttpGet]
@@ -51,7 +59,7 @@ namespace WebApplication1.Controllers
         public IActionResult AddAnimal(Animal animal)
         {
             if (ModelState.IsValid)
-            { 
+            {
                 repository.InsertAnimal(animal);
                 return RedirectToAction("AdminPage");
             }
@@ -59,7 +67,7 @@ namespace WebApplication1.Controllers
             {
                 return View("AddAnimal");
             }
-            
+
         }
     }
 }
