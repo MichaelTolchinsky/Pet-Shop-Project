@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApplication1.Models;
-using WebApplication1.Reposotories;
+using WebApplication1.Repositories;
 
 namespace WebApplication1.Controllers
 {

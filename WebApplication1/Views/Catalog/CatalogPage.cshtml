@@ -8,12 +8,13 @@
     <center>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select a category
+                @ViewBag.CurrentCategory
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" asp-controller="Catalog" asp-action="CatalogPage" asp-route-id="1">Mamal</a>
-                <a class="dropdown-item" asp-controller="Catalog" asp-action="CatalogPage" asp-route-id="2">Reptile</a>
-                <a class="dropdown-item" asp-controller="Catalog" asp-action="CatalogPage" asp-route-id="3">Aquatic</a>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <a class="dropdown-item" asp-controller="Catalog" asp-action="CatalogPage" asp-route-id="@item.Id">@item.Name</a>
+                }
             </div>
         </div>
         <br />

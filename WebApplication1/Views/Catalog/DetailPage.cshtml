@@ -34,12 +34,14 @@
         </div>
     </form>
     
-
-    <ul class="list-group  float-left">
-        @foreach (var item in Model.AnimalComments)
-        {
-            <li class="list-group-item">@item.CommentMessage</li>
-        }
-    </ul>
+    <div>
+        <ul class="list-group  float-left">
+            @foreach (var item in Model.AnimalComments)
+            {
+                <li class="list-group-item">@item.CommentMessage</li>
+            }
+        </ul>
+    </div>
+    
 
 </div>

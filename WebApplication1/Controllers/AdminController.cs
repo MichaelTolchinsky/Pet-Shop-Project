@@ -4,13 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
-using WebApplication1.Reposotories;
+using WebApplication1.Repositories;
 
 namespace WebApplication1.Controllers
 {
     public class AdminController : Controller
     {
-        private IRepository repository;
+        private readonly IRepository repository;
         public AdminController(IRepository _repository)
         {
             repository = _repository;
@@ -18,6 +18,8 @@ namespace WebApplication1.Controllers
 
         public IActionResult AdminPage(int id = 1)
         {
+            ViewBag.CurrentCategory = repository.GetAnimalCategoty(id);
+            ViewBag.Categories = repository.GetCategories();
             return View(repository.GetAnimals().Where(anm => anm.CategoryId == id));
         }
 

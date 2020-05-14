@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using WebApplication1.Data;
-using WebApplication1.Reposotories;
+using WebApplication1.Repositories;
 
 namespace WebApplication1
 {
@@ -37,10 +37,7 @@ namespace WebApplication1
             //ctx.Database.EnsureCreated();
 
             app.UseStaticFiles();
-
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

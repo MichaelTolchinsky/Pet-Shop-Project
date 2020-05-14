@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using WebApplication1.Data;
 using WebApplication1.Models;
 
-namespace WebApplication1.Reposotories
+namespace WebApplication1.Repositories
 {
     public class MyRepository : IRepository
     {
@@ -59,6 +59,11 @@ namespace WebApplication1.Reposotories
             animalInDb.ImgUrl = "/images/Animals/" + animal.ImgUrl;
             animalInDb.CategoryId = animal.CategoryId;
             context.SaveChanges();
+        }
+
+        public IEnumerable<Category> GetCategories()
+        {
+            return context.Categories;
         }
     }
 }

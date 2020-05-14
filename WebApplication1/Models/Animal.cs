@@ -17,7 +17,7 @@ namespace WebApplication1.Models
         [Required(ErrorMessage = "Please enter age.")]
         public int Age { get; set; }
 
-        [Required(ErrorMessage = "Please enter a url.")]
+        //[Required(ErrorMessage = "Please enter a url.")]
         public string ImgUrl { get; set; }
 
         [Required(ErrorMessage = "Please enter a description.")]
