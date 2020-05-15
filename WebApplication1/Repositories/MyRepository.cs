@@ -57,6 +57,7 @@ namespace WebApplication1.Repositories
             animalInDb.Name = animal.Name;
             animalInDb.Age = animal.Age;
             animalInDb.ImgUrl = "/images/Animals/" + animal.ImgUrl;
+            animalInDb.Description = animal.Description;
             animalInDb.CategoryId = animal.CategoryId;
             context.SaveChanges();
         }
